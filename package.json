@@ -1,0 +1,39 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "nuxt": "nuxt",
+    "build": "nuxt generate",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare && prisma generate && npx -y tsx ./prisma/seeder.ts",
+    "prisma": "prisma"
+  },
+  "prisma": {
+    "seed": "npx -y tsx ./prisma/seeder.ts"
+  },
+  "dependencies": {
+    "@nuxt/image": "^1.8.1",
+    "@prisma/nuxt": "^0.0.35",
+    "@vite-pwa/nuxt": "^0.10.5",
+    "@vueuse/core": "^11.1.0",
+    "@vueuse/nuxt": "^11.1.0",
+    "nuxt": "^3.13.2",
+    "prisma": "^5.21.1",
+    "validator": "^13.12.0",
+    "vue": "latest",
+    "vue-router": "latest",
+    "workbox-expiration": "^7.1.0",
+    "workbox-strategies": "^7.1.0",
+    "wrangler": "^3.83.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@prisma/client": "^5.21.1",
+    "@types/validator": "^13.12.2",
+    "zod-prisma": "^0.5.4"
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+}

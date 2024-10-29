@@ -1,0 +1,37 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db" // env("DATABASE_URL")}
+}
+
+// doesn't deploy well needs chrome puppeteer
+// generator erd {
+//   provider = "prisma-erd-generator"
+//   output   = "../ERD.svg"
+// }
+
+/// @zod.import(["import validator from 'validator';"])
+model Book {
+  title    String
+  name     String
+  coverurl String? /// @zod.custom.use(z.string().refine(v => validator.isURL(v), {message: "bad"}))
+  isbn     String  @id /// @zod.custom.use(z.string().refine(v => validator.isISBN(v), {message: "bad"}))
+  review   String?
+}
+
+generator zod {
+  provider              = "npx zod-prisma-types"
+  output                = "./zod"
+  imports               = "validator"
+  relationModel         = true
+  modelCase             = "PascalCase"
+  modelSuffix           = "Model"
+  useDecimalJs          = true
+  prismaJsonNullability = false
+}
