@@ -1,3 +1,5 @@
+Didn't make the cut "front end agnostic only includes react"
+
 # Nuxt Minimal Starter
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
